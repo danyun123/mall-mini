@@ -257,9 +257,7 @@ interface ApiResponse<T> {
 ### 7.1 主包
 
 - 启动页
-- 登录页
-- 首页
-- 工作台概览
+- 后续真实登录、首页、工作台页面按功能卡片新增
 - 全局通用组件和公共资源
 
 ### 7.2 `pkg-order`
@@ -578,7 +576,7 @@ npm install -D @commitlint/cli @commitlint/config-conventional @types/jest @type
 
 1. 目录重构和业务分包。
 2. 统一请求层。
-3. 全局 `authStore` 和 `messageStore`。
+3. 全局共享状态边界与 `appStore`；认证、消息等真实共享状态按功能需要新增。
 4. `TDesign` 组件接入。
 5. ESLint、Prettier、Stylelint、Husky、Commitlint。
 6. 环境配置文件 `env.dev/test/prod`。

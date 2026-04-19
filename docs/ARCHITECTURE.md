@@ -30,7 +30,7 @@
 ### Store
 
 - 只放跨页面共享状态和全局共享状态
-- 例如认证态、工作台摘要、未读数、当前路由
+- 当前仅保留 `app.store.ts`；认证态、工作台摘要、未读数等真实共享状态按功能需要新增
 - 避免把页面私有状态塞进全局 `store`
 
 ### services/core
@@ -70,9 +70,6 @@ miniprogram/
     business/
   pages/
     launch/
-      index.ts
-      service.ts
-    login/
       index.ts
       service.ts
   pkg-order/

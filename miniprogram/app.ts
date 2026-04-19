@@ -1,9 +1,6 @@
 import { currentEnv } from './config/index';
 import { ROUTES } from './constants/routes';
 import { appStore } from './stores/app.store';
-import { authStore } from './stores/auth.store';
-import { messageStore } from './stores/message.store';
-import { workbenchStore } from './stores/workbench.store';
 
 App<IAppOption>({
   globalData: {
@@ -13,23 +10,14 @@ App<IAppOption>({
   onLaunch() {
     const systemInfo = wx.getSystemInfoSync();
 
-    authStore.bootstrap();
-
-    if (authStore.state.isAuthenticated) {
-      workbenchStore.seedByRole(authStore.state.role);
-      messageStore.setUnreadCount(workbenchStore.state.summary.unreadMessageCount);
-    } else {
-      workbenchStore.reset();
-      messageStore.reset();
-    }
-
+    // 当前阶段只保留工程启动骨架，真实认证和工作台状态在对应功能落地时再接入。
     appStore.setActiveRoute(ROUTES.LAUNCH.path);
     appStore.markBootstrapped();
 
     this.globalData = {
       env: currentEnv,
       systemInfo,
-      isAuthenticated: authStore.state.isAuthenticated,
+      isAuthenticated: false,
     };
   },
 });

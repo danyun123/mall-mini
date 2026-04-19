@@ -1,12 +1,6 @@
 {
   "entryPagePath": "pages/launch/index",
-  "pages": ["pages/launch/index", "pages/login/index", "pages/home/index", "pages/workbench/index"],
-  "subPackages": [
-    {
-      "root": "pkg-order",
-      "pages": ["pages/order-list/index"]
-    }
-  ],
+  "pages": ["pages/launch/index"],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",

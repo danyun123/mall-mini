@@ -35,8 +35,10 @@ function Get-ChildNames {
     return @()
   }
 
+  # .gitkeep 只用于保留空目录，不代表真实业务模块或知识库文档。
   return Get-ChildItem -LiteralPath $Directory |
     Where-Object { $_.PSIsContainer -or $_.PSIsContainer -eq $false } |
+    Where-Object { $_.Name -ne '.gitkeep' } |
     Sort-Object Name |
     Select-Object -ExpandProperty Name
 }

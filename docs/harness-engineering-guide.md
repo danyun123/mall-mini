@@ -429,11 +429,11 @@ miniprogram/
 下面这些模板可以直接复制，只替换功能名和范围即可。
 
 ```md
-使用 $mall-mini-harness，完成首页工作台卡片开发，只改 `miniprogram/pages/workbench` 范围，完成后同步文档、项目状态并执行验证。
+使用 $mall-mini-harness，完成 <业务页面> 的 <具体功能>，只改该页面目录和必要公共能力，完成后同步文档、项目状态并执行验证。
 ```
 
 ```md
-使用 $mall-mini-harness，修复登录页表单提交流程的问题，只改 `miniprogram/pages/login` 相关文件，不改接口协议，完成后补注释和验证记录。
+使用 $mall-mini-harness，修复 <页面名称> 的 <问题描述>，只改该页面相关文件，不改接口协议，完成后补注释和验证记录。
 ```
 
 ```md

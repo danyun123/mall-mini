@@ -6,31 +6,14 @@
       <text class="page-eyebrow">HARNESS READY</text>
       <text class="page-title">原生小程序工程骨架已完成接管</text>
       <text class="page-subtitle">
-        当前环境：{{envLabel}}。这里保留项目启动页，作为主包占位入口和手动冒烟跳板。
+        当前环境：{{envLabel}}。这里仅保留项目启动页，真实业务页面将在对应需求卡片确认后再新增。
       </text>
     </view>
 
     <view class="page-card">
       <text class="section-title">当前状态</text>
       <view class="tag-row">
-        <text class="tag">{{loginState}}</text>
-        <text class="tag">style v2</text>
-        <text class="tag">glass-easel</text>
-        <text class="tag">lazyCodeLoading</text>
-      </view>
-    </view>
-
-    <view class="page-card">
-      <text class="section-title">主包入口</text>
-      <text class="section-subtitle">这些页面是初始化阶段的正式占位页，不再保留官方 demo。</text>
-      <view class="page-actions">
-        <button class="page-button" bindtap="goLogin">{{quickLinks[0].actionText}}</button>
-        <button class="page-button page-button--secondary" bindtap="goHome">
-          {{quickLinks[1].actionText}}
-        </button>
-        <button class="page-button page-button--ghost" bindtap="goWorkbench">
-          {{quickLinks[2].actionText}}
-        </button>
+        <text wx:for="{{statusTags}}" wx:key="text" class="tag">{{item.text}}</text>
       </view>
     </view>
   </view>

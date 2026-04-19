@@ -138,7 +138,7 @@ flowchart LR
 推荐页面结构：
 
 ```text
-miniprogram/pkg-order/pages/order-list/
+miniprogram/pkg-xxx/pages/<page-name>/
   index.ts
   index.wxml
   index.scss
@@ -159,11 +159,11 @@ miniprogram/pkg-order/pages/order-list/
 真实例子：
 
 ```md
-使用 $mall-mini-harness，完成订单列表页的筛选栏开发，只改 `miniprogram/pkg-order/pages/order-list` 范围，不接真实后端，完成后同步文档、项目状态并执行验证。
+使用 $mall-mini-harness，完成 <业务分包页面> 的 <具体功能>，只改该页面目录和必要公共能力，不接未确认接口，完成后同步文档、项目状态并执行验证。
 ```
 
 ```md
-使用 $mall-mini-harness，修复工作台未读消息展示问题，只改 `miniprogram/pages/workbench` 和相关 store，不改登录流程，完成后写明验证结果和残余风险。
+使用 $mall-mini-harness，修复 <业务页面> 的 <问题描述>，只改该页面目录和必要共享状态，不改未确认接口，完成后写明验证结果和残余风险。
 ```
 
 AI 交付必须包含：
@@ -406,15 +406,15 @@ flowchart LR
 
 推荐交接材料：
 
-| 顺序 | 文档                                                | 目的                         |
-| ---- | --------------------------------------------------- | ---------------------------- |
-| 1    | `docs/PRODUCT.md`                                   | 明确项目做什么，不做什么     |
-| 2    | `docs/ARCHITECTURE.md`                              | 理解代码应该放在哪里         |
-| 3    | `docs/CHECKLISTS.md`                                | 理解交付和验收要求           |
-| 4    | `docs/project-state.md`                             | 了解当前项目状态             |
-| 5    | `docs/features/order-list.md`                       | 看一个功能卡例子             |
-| 6    | `docs/exec-plans/order-list-sample.md`              | 看一次完整执行记录           |
-| 7    | `miniprogram/pkg-order/pages/order-list/service.ts` | 看业务编排和类型就近维护示例 |
+| 顺序 | 文档                                        | 目的                                 |
+| ---- | ------------------------------------------- | ------------------------------------ |
+| 1    | `docs/PRODUCT.md`                           | 明确项目做什么，不做什么             |
+| 2    | `docs/ARCHITECTURE.md`                      | 理解代码应该放在哪里                 |
+| 3    | `docs/CHECKLISTS.md`                        | 理解交付和验收要求                   |
+| 4    | `docs/project-state.md`                     | 了解当前项目状态                     |
+| 5    | 当前任务对应的 `docs/features/<feature>.md` | 看功能卡如何描述目标、范围和验收标准 |
+| 6    | 当前任务对应的 `docs/exec-plans/<task>.md`  | 看执行记录如何沉淀验证结果和风险     |
+| 7    | 任一页面或组件目录下的 `service.ts`         | 看业务编排和类型如何就近维护         |
 
 ## 11. 常用命令
 

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "订单列表",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "navigation-bar": "/components/base/navigation-bar/index"
-  }
-}
