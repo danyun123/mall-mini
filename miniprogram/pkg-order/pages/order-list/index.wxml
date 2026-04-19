@@ -1,0 +1,64 @@
+<navigation-bar title="订单列表" homeButton="{{true}}" background="#f3f5f7"></navigation-bar>
+
+<view class="page-shell">
+  <view class="page-body">
+    <view class="page-hero order-hero">
+      <text class="page-eyebrow">ORDER SAMPLE</text>
+      <text class="page-title">订单列表样板页</text>
+      <text class="page-subtitle">
+        当前页面用于验证订单查询业务的分层、状态兜底和文档闭环，暂不接入生产后端。
+      </text>
+    </view>
+
+    <view class="page-card order-toolbar">
+      <view>
+        <text class="section-title">模拟场景</text>
+        <text class="section-subtitle">当前：{{scenarioLabel}}，共 {{total}} 条</text>
+      </view>
+      <view class="scenario-row">
+        <button class="scenario-button {{scenario === 'normal' ? 'scenario-button--active' : ''}}" data-scenario="normal" bindtap="switchScenario">
+          正常
+        </button>
+        <button class="scenario-button {{scenario === 'empty' ? 'scenario-button--active' : ''}}" data-scenario="empty" bindtap="switchScenario">
+          空态
+        </button>
+        <button class="scenario-button {{scenario === 'error' ? 'scenario-button--active' : ''}}" data-scenario="error" bindtap="switchScenario">
+          错误
+        </button>
+      </view>
+    </view>
+
+    <view wx:if="{{loading}}" class="page-card order-state">
+      <text class="state-title">正在加载订单</text>
+      <text class="state-desc">请稍候，正在准备订单列表数据。</text>
+    </view>
+
+    <view wx:elif="{{errorMessage}}" class="page-card order-state order-state--error">
+      <text class="state-title">加载失败</text>
+      <text class="state-desc">{{errorMessage}}</text>
+      <button class="page-button" bindtap="retry">重新加载</button>
+    </view>
+
+    <view wx:elif="{{items.length === 0}}" class="page-card order-state">
+      <text class="state-title">暂无订单</text>
+      <text class="state-desc">当前条件下没有可展示的采购订单。</text>
+    </view>
+
+    <view wx:else class="order-list">
+      <view wx:for="{{items}}" wx:key="id" class="page-card order-card" data-id="{{item.id}}" bindtap="openDetail">
+        <view class="order-card__header">
+          <text class="order-card__title">{{item.title}}</text>
+          <text class="order-card__status">{{item.statusText}}</text>
+        </view>
+        <text class="order-card__supplier">{{item.supplierName}}</text>
+        <view class="order-card__meta">
+          <text>{{item.id}}</text>
+          <text>{{item.createdAt}}</text>
+        </view>
+        <text class="order-card__amount">{{item.amountText}}</text>
+      </view>
+    </view>
+
+    <text wx:if="{{updatedAt}}" class="order-updated">最后更新：{{updatedAt}}</text>
+  </view>
+</view>

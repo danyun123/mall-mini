@@ -1,0 +1,13 @@
+node_modules/
+miniprogram_npm/
+.npm-cache/
+project.private.config.json
+typings/types/
+coverage/
+dist/
+.tmp/
+.DS_Store
+.idea/
+.vscode/
+yarn.lock
+*.log

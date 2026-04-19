@@ -1,0 +1,44 @@
+<navigation-bar title="工作台" homeButton="{{true}}" background="#f3f5f7"></navigation-bar>
+
+<view class="page-shell">
+  <view class="page-body">
+    <view class="page-hero">
+      <text class="page-eyebrow">WORKBENCH</text>
+      <text class="page-title">共享状态占位</text>
+      <text class="page-subtitle">
+        工作台页用于验证全局 store、摘要数据和页面间跳转链路是否稳定。
+      </text>
+    </view>
+
+    <view class="page-card">
+      <text class="section-title">摘要信息</text>
+      <view class="info-grid">
+        <view class="info-item">
+          <text class="info-label">当前角色</text>
+          <text class="info-value">{{currentRole}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">待处理订单</text>
+          <text class="info-value">{{summary.pendingOrders}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">待审查任务</text>
+          <text class="info-value">{{summary.pendingAuditCount}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">未读消息</text>
+          <text class="info-value">{{unreadCount}}</text>
+        </view>
+      </view>
+      <text class="section-subtitle">最近同步：{{lastUpdatedAt}}</text>
+    </view>
+
+    <view class="page-card">
+      <text class="section-title">快速操作</text>
+      <view class="page-actions">
+        <button class="page-button" bindtap="goHome">回到首页</button>
+        <button class="page-button page-button--ghost" bindtap="logout">退出登录</button>
+      </view>
+    </view>
+  </view>
+</view>

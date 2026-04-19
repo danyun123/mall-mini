@@ -1,0 +1,157 @@
+page {
+  background: #f3f5f7;
+  color: #12202f;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+view,
+text,
+button,
+scroll-view {
+  box-sizing: border-box;
+}
+
+button {
+  border: 0;
+  border-radius: 24rpx;
+}
+
+button::after {
+  border: 0;
+}
+
+.page-shell {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(23, 98, 182, 0.1) 0%, rgba(243, 245, 247, 0) 240rpx), #f3f5f7;
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  padding: 32rpx;
+}
+
+.page-hero,
+.page-card {
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 16rpx 40rpx rgba(17, 42, 70, 0.08);
+}
+
+.page-hero {
+  padding: 36rpx 32rpx;
+}
+
+.page-card {
+  padding: 28rpx 24rpx;
+}
+
+.page-eyebrow {
+  display: inline-block;
+  margin-bottom: 12rpx;
+  color: #1762b6;
+  font-size: 24rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+}
+
+.page-title {
+  display: block;
+  margin-bottom: 12rpx;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #12202f;
+}
+
+.page-subtitle {
+  color: #52606d;
+  font-size: 26rpx;
+}
+
+.section-title {
+  display: block;
+  margin-bottom: 18rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #12202f;
+}
+
+.section-subtitle {
+  display: block;
+  margin-top: 8rpx;
+  color: #52606d;
+  font-size: 24rpx;
+}
+
+.page-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 18rpx;
+}
+
+.page-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 88rpx;
+  border-radius: 24rpx;
+  background: #1762b6;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.page-button--secondary {
+  background: #e9f1fb;
+  color: #1762b6;
+}
+
+.page-button--ghost {
+  background: #ffffff;
+  color: #12202f;
+  border: 2rpx solid #d8e1ea;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.tag {
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: #edf2f7;
+  color: #334e68;
+  font-size: 22rpx;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18rpx;
+}
+
+.info-item {
+  padding: 22rpx;
+  border-radius: 22rpx;
+  background: #f8fafc;
+}
+
+.info-label {
+  display: block;
+  margin-bottom: 8rpx;
+  color: #7b8794;
+  font-size: 22rpx;
+}
+
+.info-value {
+  color: #12202f;
+  font-size: 30rpx;
+  font-weight: 600;
+}

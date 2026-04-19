@@ -1,0 +1,69 @@
+{
+  "name": "mall-mini",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Native WeChat mini program scaffold with Harness Engineering conventions.",
+  "packageManager": "npm@10.8.2",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "prepare": "node scripts/setup-husky.mjs && npm run build:mini-npm",
+    "build:mini-npm": "node scripts/build-miniprogram-npm.mjs",
+    "sync:state": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/sync-project-state.ps1",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run lint:ts && npm run lint:style && npm run format:check && npm run validate:mini",
+    "lint:ts": "eslint \"miniprogram/**/*.ts\" \"scripts/**/*.mjs\" \"*.{cjs,mjs}\"",
+    "lint:style": "stylelint \"miniprogram/**/*.scss\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test:unit",
+    "test:unit": "jest --passWithNoTests --runInBand",
+    "validate:mini": "npm run build:mini-npm && node scripts/validate-miniprogram.mjs",
+    "openapi:types": "node scripts/openapi-types.mjs",
+    "ci:preview": "node scripts/miniprogram-ci.mjs preview",
+    "ci:upload": "node scripts/miniprogram-ci.mjs upload"
+  },
+  "lint-staged": {
+    "*.{ts,cjs,mjs,json,md}": [
+      "prettier --write"
+    ],
+    "*.ts": [
+      "eslint --fix"
+    ],
+    "*.scss": [
+      "stylelint --fix"
+    ]
+  },
+  "dependencies": {
+    "dayjs": "1.11.20",
+    "miniprogram-computed": "8.0.0",
+    "mobx-miniprogram": "6.12.3",
+    "mobx-miniprogram-bindings": "6.0.0",
+    "tdesign-miniprogram": "1.13.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
+    "@types/jest": "30.0.0",
+    "@typescript-eslint/eslint-plugin": "8.58.2",
+    "@typescript-eslint/parser": "8.58.2",
+    "cross-env": "10.1.0",
+    "eslint": "9.24.0",
+    "eslint-config-prettier": "10.1.8",
+    "husky": "9.1.7",
+    "jest": "30.3.0",
+    "lint-staged": "16.4.0",
+    "miniprogram-api-typings": "5.1.2",
+    "miniprogram-automator": "0.12.1",
+    "miniprogram-ci": "2.1.31",
+    "miniprogram-simulate": "1.6.1",
+    "openapi-typescript": "7.13.0",
+    "prettier": "3.8.3",
+    "sass": "1.99.0",
+    "stylelint": "17.8.0",
+    "stylelint-config-standard-scss": "17.0.0",
+    "ts-jest": "29.4.5",
+    "typescript": "5.8.3"
+  }
+}

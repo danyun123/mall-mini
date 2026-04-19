@@ -1,0 +1,43 @@
+<navigation-bar title="首页" homeButton="{{true}}" background="#f3f5f7"></navigation-bar>
+
+<view class="page-shell">
+  <view class="page-body">
+    <view class="page-hero">
+      <text class="page-eyebrow">HOME SHELL</text>
+      <text class="page-title">主包首页占位</text>
+      <text class="page-subtitle">
+        这里用于承接初始化后的主包壳层，后续再按业务需求继续扩展主包入口内容。
+      </text>
+    </view>
+
+    <view class="page-card">
+      <text class="section-title">运行上下文</text>
+      <view class="info-grid">
+        <view class="info-item">
+          <text class="info-label">环境</text>
+          <text class="info-value">{{envLabel}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">当前用户</text>
+          <text class="info-value">{{displayName}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">角色</text>
+          <text class="info-value">{{currentRole}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-label">未读消息</text>
+          <text class="info-value">{{unreadCount}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="page-card">
+      <text class="section-title">下一步入口</text>
+      <view class="page-actions">
+        <button class="page-button" bindtap="goWorkbench">进入工作台</button>
+        <button class="page-button page-button--ghost" bindtap="logout">退出登录</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+node_modules
+miniprogram_npm
+**/miniprogram_npm
+coverage
+docs/reference
+typings/types

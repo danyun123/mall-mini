@@ -1,0 +1,29 @@
+{
+  "entryPagePath": "pages/launch/index",
+  "pages": ["pages/launch/index", "pages/login/index", "pages/home/index", "pages/workbench/index"],
+  "subPackages": [
+    {
+      "root": "pkg-order",
+      "pages": ["pages/order-list/index"]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "backgroundColor": "#f3f5f7",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

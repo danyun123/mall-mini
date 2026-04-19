@@ -1,0 +1,99 @@
+.order-hero {
+  background: linear-gradient(135deg, rgba(23, 98, 182, 0.12), rgba(19, 126, 87, 0.08)), #ffffff;
+}
+
+.order-toolbar {
+  gap: 24rpx;
+}
+
+.scenario-row {
+  display: flex;
+  gap: 16rpx;
+}
+
+.scenario-button {
+  flex: 1;
+  min-height: 72rpx;
+  border-radius: 18rpx;
+  background: #edf2f7;
+  color: #334e68;
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.scenario-button--active {
+  background: #1762b6;
+  color: #ffffff;
+}
+
+.order-state {
+  align-items: flex-start;
+  gap: 18rpx;
+}
+
+.order-state--error {
+  border: 2rpx solid rgba(191, 67, 67, 0.18);
+}
+
+.state-title {
+  color: #12202f;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.state-desc {
+  color: #52606d;
+  font-size: 26rpx;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.order-card {
+  gap: 16rpx;
+}
+
+.order-card__header,
+.order-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
+}
+
+.order-card__title {
+  flex: 1;
+  color: #12202f;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.order-card__status {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  background: #e9f1fb;
+  color: #1762b6;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+
+.order-card__supplier,
+.order-card__meta {
+  color: #52606d;
+  font-size: 24rpx;
+}
+
+.order-card__amount {
+  color: #137e57;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.order-updated {
+  color: #7b8794;
+  font-size: 22rpx;
+  text-align: center;
+}
