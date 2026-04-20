@@ -6,25 +6,6 @@ $packageJsonPath = Join-Path $repoRoot 'package.json'
 $docsRoot = Join-Path $repoRoot 'docs'
 $miniprogramRoot = Join-Path $repoRoot 'miniprogram'
 
-function Invoke-Git {
-  param(
-    [Parameter(Mandatory = $true)]
-    [string[]]$Args
-  )
-
-  $output = & git @Args 2>$null
-
-  if ($LASTEXITCODE -ne 0) {
-    return $null
-  }
-
-  if ($output -is [array]) {
-    return (($output | ForEach-Object { $_.ToString() }) -join "`n").Trim()
-  }
-
-  return ([string]$output).Trim()
-}
-
 function Get-ChildNames {
   param(
     [Parameter(Mandatory = $true)]
@@ -59,18 +40,6 @@ function Format-Bullets {
 }
 
 $packageJson = Get-Content -Raw -Encoding UTF8 $packageJsonPath | ConvertFrom-Json
-$updatedAt = Get-Date -Format 'yyyy年M月d日dddd HH:mm:ss'
-$branch = Invoke-Git @('symbolic-ref', '--short', 'HEAD')
-if (-not $branch) { $branch = 'unknown' }
-$head = Invoke-Git @('rev-parse', '--short', 'HEAD')
-if (-not $head) { $head = 'no-commit-yet' }
-$dirtyFiles = Invoke-Git @('status', '--short')
-if ($dirtyFiles) {
-  $dirtyFiles = $dirtyFiles -split "`n" | ForEach-Object { $_.Trim() } | Where-Object { $_ }
-} else {
-  $dirtyFiles = @()
-}
-
 $docsFeatures = Get-ChildNames (Join-Path $docsRoot 'features') | ForEach-Object { "docs/features/$_" }
 $docsExecPlans = Get-ChildNames (Join-Path $docsRoot 'exec-plans') | ForEach-Object { "docs/exec-plans/$_" }
 $pages = Get-ChildNames (Join-Path $miniprogramRoot 'pages')
@@ -98,14 +67,13 @@ $knowledgeItems += $docsExecPlans
 $projectState = @(
   '# 项目状态快照'
   ''
-  "- 更新时间：$updatedAt"
-  "- 分支：$branch"
-  "- HEAD：$head"
+  # 共享快照只写入稳定项目索引；本地时间、分支、HEAD 和工作树状态会导致无意义合并冲突。
   "- 包管理器：$($packageJson.packageManager)"
   "- 同步命令：``npm run sync:state``"
   ''
-  '## 当前工作树'
-  (Format-Bullets -Items $dirtyFiles -EmptyText '工作树干净，没有未提交修改')
+  '## 本地状态'
+  '- 本文件不记录本地更新时间、分支、HEAD 或工作树状态。'
+  '- 查看本地状态请运行 `git status --short --branch`。'
   ''
   '## 当前模块'
   (Format-Bullets -Items @(
@@ -121,6 +89,7 @@ $projectState = @(
   ''
   '## 协作提醒'
   "- 新增或跨模块改动后先运行 ``npm run sync:state``。"
+  '- 需要提交信息时使用 `git rev-parse --short HEAD`，不要把本地瞬时状态写入共享文档。'
   "- 复杂需求先写 ``docs/exec-plans/`` 或 ``docs/features/``，再动代码。"
   '- AI 输出必须包含改动文件、验证结果和残余风险。'
   ''

@@ -17,7 +17,7 @@
 - 根目录 `node_modules` 变更后，要执行 `npm run build:mini-npm`，或确认开发者工具“构建 npm”成功
 - 关键代码必须补注释，尤其是页面事件函数、`service.ts` 业务编排函数、`store` 自定义 state、`scripts/`、构建/校验逻辑、复杂分支和数据转换代码；缺少关键注释时不能交付
 - 所有 `wx.showToast`、路由跳转、授权、登录态写入等会触发运行时控制台输出的代码，要主动检查参数边界和失败分支
-- 每天或每次跨模块改动后，运行 `npm run sync:state` 刷新 `docs/project-state.md`
+- 每天或每次跨模块改动后，运行 `npm run sync:state` 刷新 `docs/project-state.md`；快照只记录稳定项目索引，不记录本地时间、分支、HEAD 或工作树状态
 - 优先复用共享工具，避免重复造轮子
 
 合并前：

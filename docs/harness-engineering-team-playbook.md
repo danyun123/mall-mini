@@ -50,7 +50,7 @@ flowchart TB
 | `docs/PRODUCT.md`       | 产品目标、业务边界、角色定义   | 判断需求是否越界时读           |
 | `docs/ARCHITECTURE.md`  | 分层规则、依赖方向、目录职责   | 写代码前必须读                 |
 | `docs/CHECKLISTS.md`    | 开发、冒烟、Agent 执行清单     | 开发中和合并前必须读           |
-| `docs/project-state.md` | 当前模块、状态、工作树快照     | 每天开工和跨模块改动后读       |
+| `docs/project-state.md` | 当前模块、包管理器、知识库索引；不记录本地状态 | 每天开工和跨模块改动后读 |
 | `docs/features/*`       | 单个功能的目标、范围、验收标准 | 做具体功能前读或新增           |
 | `docs/exec-plans/*`     | 复杂任务的计划、验证记录、结论 | 复杂任务开始前建，结束后补记录 |
 | `$mall-mini-harness`    | 让 AI 自动执行项目工作流       | 给 AI 下任务时显式调用         |
@@ -98,7 +98,7 @@ npm run lint
 2. 阅读 `docs/PRODUCT.md`，理解产品目标和业务边界。
 3. 阅读 `docs/ARCHITECTURE.md`，理解页面、组件、local service、store、core service 和 types 的分工。
 4. 阅读 `docs/CHECKLISTS.md`，理解编码前、实现中、合并前要检查什么。
-5. 阅读 `docs/project-state.md`，了解当前模块、分支、包管理器和知识库索引。
+5. 阅读 `docs/project-state.md`，了解当前模块、包管理器和知识库索引；本地分支、HEAD 和工作树状态用 Git 命令查看。
 6. 在本地执行 `npm run typecheck`、`npm run lint`、`npm run test`，确认环境可用。
 
 ### 第一个功能按这个顺序做
@@ -189,10 +189,10 @@ npm run sync:state
 
 | 时间点                     | 目的                                 |
 | -------------------------- | ------------------------------------ |
-| 每天开工前                 | 让团队看到最新分支、模块和知识库索引 |
+| 每天开工前                 | 让团队看到最新模块和知识库索引       |
 | 每个成员完成跨模块改动后   | 避免多人对项目状态理解不一致         |
 | 每次新增功能卡或执行计划后 | 让状态快照包含新的知识入口           |
-| 每次合并前                 | 让评审者看到最新工作树和模块状态     |
+| 每次合并前                 | 让评审者看到最新项目索引             |
 | 每次交接前                 | 给接手人一份最新地图                 |
 
 ### 什么时候清理无用信息
@@ -353,7 +353,7 @@ sequenceDiagram
 操作清单：
 
 1. 运行 `npm run sync:state`。
-2. 查看 `docs/project-state.md` 的工作树、模块列表和知识库索引。
+2. 查看 `docs/project-state.md` 的模块列表和知识库索引；工作树状态用 `git status --short --branch` 查看。
 3. 确认每个成员今天负责的模块。
 4. 确认每个任务是否已有 `features` 或 `exec-plans`。
 5. 对涉及权限、隐私、支付或不可逆操作的任务先人工确认。
@@ -422,7 +422,7 @@ flowchart LR
 | ------------------------ | -------------------------------- | ------------------------------- |
 | `npm install`            | 安装依赖                         | 首次拉取项目或依赖变更后        |
 | `npm run build:mini-npm` | 构建小程序 npm 依赖              | 依赖变化或开发者工具构建 npm 前 |
-| `npm run sync:state`     | 刷新项目状态快照                 | 每天开工、跨模块改动后、交接前  |
+| `npm run sync:state`     | 刷新稳定项目状态快照，不写入本地时间、分支、HEAD 或工作树状态 | 每天开工、跨模块改动后、交接前  |
 | `npm run typecheck`      | TypeScript 类型检查              | 开发中和合并前                  |
 | `npm run lint`           | 代码风格、小程序配置和运行时校验 | 合并前必须执行                  |
 | `npm run test`           | 单元测试入口                     | 合并前必须执行                  |
