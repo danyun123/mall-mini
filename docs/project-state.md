@@ -21,8 +21,7 @@
 - docs/PRODUCT.md
 - docs/ARCHITECTURE.md
 - docs/CHECKLISTS.md
-- docs/harness-engineering-guide.md
-- docs/harness-engineering-team-playbook.md
+- docs/LESSONS_LEARNED.md
 - docs/exec-plans/init-project.md
 
 ## 协作提醒

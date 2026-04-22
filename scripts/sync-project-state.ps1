@@ -54,13 +54,16 @@ $coreServicesText = if ($coreServices.Count -gt 0) { [string]::Join(', ', $coreS
 $storesText = if ($stores.Count -gt 0) { [string]::Join(', ', $stores) } else { '无' }
 $typesText = if ($types.Count -gt 0) { [string]::Join(', ', $types) } else { '无' }
 
-$knowledgeItems = @(
+$baseKnowledgeItems = @(
   'docs/PRODUCT.md'
   'docs/ARCHITECTURE.md'
   'docs/CHECKLISTS.md'
+  'docs/LESSONS_LEARNED.md'
   'docs/harness-engineering-guide.md'
   'docs/harness-engineering-team-playbook.md'
 )
+# 固定知识入口也必须以当前仓库事实为准，避免已删除文档被重新写回项目状态快照。
+$knowledgeItems = $baseKnowledgeItems | Where-Object { Test-Path -LiteralPath (Join-Path $repoRoot $_) }
 $knowledgeItems += $docsFeatures
 $knowledgeItems += $docsExecPlans
 
